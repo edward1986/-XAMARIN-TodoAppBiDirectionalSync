@@ -1,0 +1,17 @@
+C:\Users\Lorilla Family\source\repos\TodoSqlite\TodoSqlite\TodoSqlite\bin\Debug\netstandard2.0\TodoSqlite.deps.json
+C:\Users\Lorilla Family\source\repos\TodoSqlite\TodoSqlite\TodoSqlite\bin\Debug\netstandard2.0\TodoSqlite.dll
+C:\Users\Lorilla Family\source\repos\TodoSqlite\TodoSqlite\TodoSqlite\bin\Debug\netstandard2.0\ref\TodoSqlite.dll
+C:\Users\Lorilla Family\source\repos\TodoSqlite\TodoSqlite\TodoSqlite\bin\Debug\netstandard2.0\TodoSqlite.pdb
+C:\Users\Lorilla Family\source\repos\TodoSqlite\TodoSqlite\TodoSqlite\obj\Debug\netstandard2.0\App.xaml.g.cs
+C:\Users\Lorilla Family\source\repos\TodoSqlite\TodoSqlite\TodoSqlite\obj\Debug\netstandard2.0\MainPage.xaml.g.cs
+C:\Users\Lorilla Family\source\repos\TodoSqlite\TodoSqlite\TodoSqlite\obj\Debug\netstandard2.0\View\AddTodoPage.xaml.g.cs
+C:\Users\Lorilla Family\source\repos\TodoSqlite\TodoSqlite\TodoSqlite\obj\Debug\netstandard2.0\View\DetailTodoPage.xaml.g.cs
+C:\Users\Lorilla Family\source\repos\TodoSqlite\TodoSqlite\TodoSqlite\obj\Debug\netstandard2.0\View\LoginView.xaml.g.cs
+C:\Users\Lorilla Family\source\repos\TodoSqlite\TodoSqlite\TodoSqlite\obj\Debug\netstandard2.0\View\SignupView.xaml.g.cs
+C:\Users\Lorilla Family\source\repos\TodoSqlite\TodoSqlite\TodoSqlite\obj\Debug\netstandard2.0\TodoSqlite.AssemblyInfoInputs.cache
+C:\Users\Lorilla Family\source\repos\TodoSqlite\TodoSqlite\TodoSqlite\obj\Debug\netstandard2.0\TodoSqlite.AssemblyInfo.cs
+C:\Users\Lorilla Family\source\repos\TodoSqlite\TodoSqlite\TodoSqlite\obj\Debug\netstandard2.0\TodoSqlite.csproj.CoreCompileInputs.cache
+C:\Users\Lorilla Family\source\repos\TodoSqlite\TodoSqlite\TodoSqlite\obj\Debug\netstandard2.0\XamlC.stamp
+C:\Users\Lorilla Family\source\repos\TodoSqlite\TodoSqlite\TodoSqlite\obj\Debug\netstandard2.0\TodoSqlite.dll
+C:\Users\Lorilla Family\source\repos\TodoSqlite\TodoSqlite\TodoSqlite\obj\Debug\netstandard2.0\ref\TodoSqlite.dll
+C:\Users\Lorilla Family\source\repos\TodoSqlite\TodoSqlite\TodoSqlite\obj\Debug\netstandard2.0\TodoSqlite.pdb

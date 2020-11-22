@@ -1,0 +1,58 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" xmlns:local="clr-namespace:TodoSqlite.Converter"
+             Title="{Binding Title}"
+             x:Class="TodoSqlite.MainPage">
+
+    <ContentPage.Resources>
+        <ResourceDictionary>
+            <local:ChangeCompleteActionTextConverter x:Key="ChangeCompletedActionTextConverter" />
+        </ResourceDictionary>
+    </ContentPage.Resources>
+    <ContentPage.ToolbarItems>
+        <ToolbarItem Command="{Binding AddItem}" Text="Add Todo Item"/>
+        <ToolbarItem Command="{Binding Logout}" Text="Logout"/>
+    </ContentPage.ToolbarItems>
+    
+
+    <ContentPage.Content>
+        <StackLayout Orientation="Vertical">
+            <AbsoluteLayout x:Name="absLayout" Padding="0" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand">
+                <ListView  HeightRequest="{Binding Path=Height, Source={x:Reference absLayout}}" ItemsSource="{Binding GroupedTodoList}"
+                      IsGroupingEnabled="True"
+                      ItemSelected="TodoDisplayList_ItemSelected"
+                      GroupDisplayBinding="{Binding Key}"
+                      x:Name="TodoDisplayList">
+                <ListView.ItemTemplate >
+                    <DataTemplate>
+                        <TextCell Text="{Binding title}" >
+                            <TextCell.ContextActions>
+                                <MenuItem Command="{Binding Source={x:Reference TodoDisplayList}, Path=BindingContext.ChangeIsCompleted }"
+                                          CommandParameter="{Binding .}" Text="{Binding isCompleted, Converter={StaticResource ChangeCompletedActionTextConverter}}" />
+                                <MenuItem Command="{Binding Source={x:Reference TodoDisplayList}, Path=BindingContext.Delete }" 
+                                          CommandParameter="{Binding .}" Text="Delete" IsDestructive="True" />
+                                <MenuItem Command="{Binding Source={x:Reference TodoDisplayList}, Path=BindingContext.NoteSelectedCommand }" 
+                                          CommandParameter="{Binding .}" Text="View"  />
+                            </TextCell.ContextActions>
+                        </TextCell>
+                    </DataTemplate>
+                </ListView.ItemTemplate>
+            </ListView>
+           
+
+
+                <ContentView x:Name="popupLoadingView" BackgroundColor="#C0808080" Padding="10, 0" IsVisible="{Binding IsBusy}" AbsoluteLayout.LayoutBounds="0, 0, 1, 1" AbsoluteLayout.LayoutFlags="All">
+                    <StackLayout VerticalOptions="Center" HorizontalOptions="Center">
+                        <StackLayout Orientation="Vertical" HeightRequest="150" WidthRequest="200" BackgroundColor="White">
+
+                            <ActivityIndicator IsRunning="{Binding IsBusy}" IsVisible="{Binding IsBusy}" x:Name="activityIndicator" Margin="0,50,0,0" VerticalOptions="Center" HorizontalOptions="Center" Color="Black" WidthRequest="30" HeightRequest="30" ></ActivityIndicator>
+                            <Label x:Name="lblLoadingText" TextColor="Black" VerticalOptions="Center" HorizontalOptions="Center" VerticalTextAlignment="Center" Text="Loading..."></Label>
+                        </StackLayout>
+                    </StackLayout>
+                </ContentView>
+
+            </AbsoluteLayout>
+        </StackLayout>
+      
+    </ContentPage.Content>
+</ContentPage>
