@@ -152,7 +152,7 @@ namespace TodoSqlite.Data
 
 
             }
-            return await _database.Table<TodoModel>().ToListAsync();
+            return await _database.Table<TodoModel>().Where(i => i.Delete == false).ToListAsync();
         }
 
         public async Task InitializeTodo()
