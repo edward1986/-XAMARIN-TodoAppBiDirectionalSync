@@ -6,6 +6,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using System.Threading;
 using System.Threading.Tasks;
 using TodoSqlite.Model;
 using TodoSqlite.Service;
@@ -170,55 +171,78 @@ namespace TodoSqlite.Data
 
         public async Task<int> SaveTodoModelAsync(TodoModel note)
         {
+            try
+            {
+                if (note.id != 0)
+                {
+                    if (CrossConnectivity.Current.IsConnected)
+                    {
+                        Thread.Sleep(50);
+                        var todo = await ApiService.PutTodo(note);
+
+                        return await _database.UpdateAsync(todo);
+
+                    }
+                    else
+                    {
+                        note.Update = true;
+                     
+                        note.updated_at = DateTimeOffset.Now;
+                        Thread.Sleep(50);
+                        return await _database.UpdateAsync(note);
+                    }
+
+                }
+                else
+                {
+                    if (CrossConnectivity.Current.IsConnected)
+                    {
+                        Thread.Sleep(50);
+                        var todo = await ApiService.PostTodo(note);
+                        var result = await _database.InsertAsync(todo);
+                        return result;
+                    }
+                    else
+                    {
+                        note.Store = true;
+                        Thread.Sleep(50);
+                        return await _database.InsertAsync(note); ;
+                    }
+
+                }
+            }catch (ArgumentOutOfRangeException outOfRange)
+            {
+                
+                throw;
+            }
             
-            if (note.id != 0)
-            {
-                if (CrossConnectivity.Current.IsConnected)
-                {
-                    var todo = await ApiService.PutTodo(note);
-                    
-                    return await _database.UpdateAsync(todo);
-
-                }
-                else
-                {
-                    note.Update = true;
-                    note.updated_at = DateTimeOffset.Now;
-                    return await _database.UpdateAsync(note);
-                }
-
-            }
-            else
-            {
-                if (CrossConnectivity.Current.IsConnected)
-                {
-                    var todo = await ApiService.PostTodo(note);
-                    var result = await _database.InsertAsync(todo);
-                    return result;
-                }
-                else
-                {
-                    note.Store = true;
-                    return await _database.InsertAsync(note); ;
-                }
-
-            }
+            
         }
 
         public async Task<int> DeleteTodoModelAsync(TodoModel note)
         {
-            if (CrossConnectivity.Current.IsConnected)
+            try
+            {
+                if (CrossConnectivity.Current.IsConnected)
+                {
+                    Thread.Sleep(50);
+                    await _database.DeleteAsync(note);
+                    await ApiService.DeleteTodos(note);
+                    return 1;
+                }
+                else
+                {
+                    note.Delete = true;
+                    Thread.Sleep(50);
+                    return await _database.UpdateAsync(note);
+                }
+            }
+            catch (Exception)
             {
 
-                await _database.DeleteAsync(note);
-                await ApiService.DeleteTodos(note);
-                return 1;
+                throw;
             }
-            else
-            {
-                note.Delete = true;
-                return await _database.UpdateAsync(note);
-            }
+            
         }
         public async Task<bool> LogoutTodoModelAsync()
         {

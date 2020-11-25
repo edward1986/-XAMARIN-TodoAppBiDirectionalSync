@@ -57,8 +57,7 @@ namespace TodoSqlite
         private void HandleConnectivityChanged(object sender, Plugin.Connectivity.Abstractions.ConnectivityChangedEventArgs e)
         {
             Type currentPage = this.MainPage.GetType();
-            if (e.IsConnected && currentPage != typeof(MainPage)) this.MainPage = new MainPage();
-            else if (!e.IsConnected && currentPage != typeof(MainPage)) this.MainPage = new MainPage();
+           // if (e.IsConnected && currentPage != typeof(MainPage)) this.MainPage = new MainPage();
         }
 
         protected override void OnSleep()

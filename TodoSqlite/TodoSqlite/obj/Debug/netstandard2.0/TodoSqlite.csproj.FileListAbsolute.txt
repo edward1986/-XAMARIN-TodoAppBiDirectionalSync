@@ -15,3 +15,4 @@ C:\Users\Lorilla Family\source\repos\TodoSqlite\TodoSqlite\TodoSqlite\obj\Debug\
 C:\Users\Lorilla Family\source\repos\TodoSqlite\TodoSqlite\TodoSqlite\obj\Debug\netstandard2.0\TodoSqlite.dll
 C:\Users\Lorilla Family\source\repos\TodoSqlite\TodoSqlite\TodoSqlite\obj\Debug\netstandard2.0\ref\TodoSqlite.dll
 C:\Users\Lorilla Family\source\repos\TodoSqlite\TodoSqlite\TodoSqlite\obj\Debug\netstandard2.0\TodoSqlite.pdb
+C:\Users\Lorilla Family\source\repos\TodoSqlite\TodoSqlite\TodoSqlite\obj\Debug\netstandard2.0\TodoSqlite.csprojAssemblyReference.cache
